@@ -1,4 +1,5 @@
-from review_score_app.app import db
+from review_score_app import db
+from sqlalchemy.inspection import inspect as inspect
 
 
 class Serializer(object):
@@ -24,11 +25,11 @@ class Product(db.Model, Serializer):
     brand = db.Column(db.String(255))
     name = db.Column(db.String(255))
     category = db.Column(db.String(255))
-    reviews = db.relationship('Reivew', backref= "product")
+    reviews = db.relationship('Review', backref= "product")
 
 
-    #def __repr__(self):
-    #    return "<Tag (name='%s')>" % (self.name)
+    def __repr__(self):
+        return f'Product name:{self.name} brand:{self.brand} category: {self.category}'
 
 class Customer(db.Model, Serializer):
 
@@ -36,13 +37,13 @@ class Customer(db.Model, Serializer):
     username    =   db.Column(db.String(255))
     gender      =   db.Column(db.String(255))
     age         =   db.Column(db.Integer)
-    reviews = db.relationship('Reivew', backref= "customer")
+    reviews = db.relationship('Review', backref= "customer")
 
-class Reivew(db.Model, Serializer):
+class Review(db.Model, Serializer):
     
     review_id  =  db.Column(db.Integer, autoincrement=True, primary_key=True, unique=True)
     product_id =  db.Column(db.Integer, db.ForeignKey('product.product_id'))
-    review_date = db.Column(db.DateTime)
+    review_date = db.Column(db.String)
     doRecommend = db.Column(db.String)
     rating = db.Column(db.Integer)
     review_text = db.Column(db.String)
@@ -53,7 +54,7 @@ class Reivew(db.Model, Serializer):
 
 
 if __name__ == '__main__':
-    db.create_all()
+    db.create_all()   
     db.session.commit()
 
 

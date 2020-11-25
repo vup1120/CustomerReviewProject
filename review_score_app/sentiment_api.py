@@ -1,7 +1,6 @@
 import requests
 import json
  
-text = 'Excellent location, opposite a very large mall with wide variety of shops, restaurants and more.'
 
 def sentiment_score(text):
 	url = 'http://api.text2data.com/v3/analyze'

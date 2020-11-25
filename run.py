@@ -1,3 +1,3 @@
-from review_score_app.app import flask_app
+from review_score_app import app
 
-flask_app.run(debug=True)
+app.run(debug=True)
