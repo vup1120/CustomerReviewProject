@@ -1,5 +1,5 @@
 from review_score_app import db
-from review_score_app.models import Review, Customer
+from review_score_app.DataLayer.models import Review, Customer
 import matplotlib.pyplot as plt
 
 
