@@ -1,8 +1,8 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-#import logging
+import logging
 
-#logging.basicConfig(level=logging.INFO, format='%(asctime)s :: %(module)s: :: %(levelname)s :: %(message)s')
+logging.basicConfig(level=logging.INFO, format='%(asctime)s :: %(module)s: :: %(levelname)s :: %(message)s')
 
 
 app = Flask(__name__)

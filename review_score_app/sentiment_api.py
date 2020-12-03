@@ -13,11 +13,12 @@ def sentiment_score(text):
 	}
 	 
 	r = requests.post(url, data=payload)
-	data=r.json()
+	data = r.json()
 	  
-	if data['Status'] == 1:
-	   print('This document is: %s%s %+.2f' % (data['DocSentimentPolarity'], data['DocSentimentResultString'],data['DocSentimentValue']))
-	else: 
-	   print(data['ErrorMessage'])
+	if data['Status'] != 1: 
+		print(data['ErrorMessage'])
+	if data['DocSentimentResultString'] == 'positive':
+		return float(data['DocSentimentValue'])
+	else:
+		return float(data['DocSentimentValue'])*-1
 	    
-	return data['DocSentimentResultString'], data['DocSentimentValue']

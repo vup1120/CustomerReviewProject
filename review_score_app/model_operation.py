@@ -24,7 +24,7 @@ class OperatorReview():
 		return ratings_count
 
 	def get_ratings_plot(product_id):
-		ratings_count = self.get_ratings_count(product_id)
+		ratings_count = OperatorReview.get_ratings_count(product_id)
 		lists = sorted(ratings_count.items()) # sorted by key, return a list of tuples
 		x, y = zip(*lists) # unpack a list of pairs into two tuples
 		plt.bar(x,y)
