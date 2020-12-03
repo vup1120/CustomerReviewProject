@@ -16,5 +16,5 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 db = SQLAlchemy(app)
 
 # register models
-from review_score_app import models
-from review_score_app import views
+from review_score_app.DataLayer import models
+from review_score_app.APILayer import views

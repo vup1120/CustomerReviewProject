@@ -7,11 +7,13 @@ import logging
 import sqlalchemy
 from flask import jsonify, request, make_response, send_file
 
-from review_score_app import app, utils
-from review_score_app.models import Product, Review, Customer
-from review_score_app.sentiment_api import sentiment_score
-from review_score_app.model_operation import OperatorReview, OperatorCustomer
-from review_score_app.regression import scale
+from review_score_app import app
+from review_score_app.APILayer import utils
+
+from review_score_app.DataLayer.models import Product, Review, Customer
+from review_score_app.ServiceLayer.sentiment_api import sentiment_score
+from review_score_app.DataLayer.model_operation import OperatorReview, OperatorCustomer
+from review_score_app.ServiceLayer.regression import scale
 from datetime import date
 
 
